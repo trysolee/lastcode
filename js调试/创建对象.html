@@ -1,0 +1,50 @@
+<html>
+<body>
+
+<script type="text/javascript">
+var a = {
+
+
+	txt: 'abc',
+
+	b: function() {
+
+		return this.txt;
+	},
+
+	c: function() {
+
+		this.a = 'tyr';
+
+		this.txt = this.a; // 成功
+	},
+
+};
+
+var b = {
+
+
+	t: this.txt = 'avd',
+
+
+
+};
+
+
+var d = function() {
+
+	this.txt = 'abcd';
+}
+
+// var c = new a(); // 失败
+
+var c = new d(); // 成功
+
+c= new a.c(); // 成功
+
+document.write(c.txt);
+
+</script>
+
+</body>
+</html>

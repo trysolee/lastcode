@@ -1,0 +1,36 @@
+<html>
+<body>
+
+<script type="text/javascript">
+
+
+var set = function(a) {
+	if (a.ok)
+	a.abc = '123456';
+else
+	a.abc = 'abv';
+
+}
+
+var int = function() {
+
+	this.ok = true;
+
+	set(this);
+
+	this.txt = 'abc';
+	this.set = function(b) {
+		this.txt = b;
+	};
+
+};
+
+var arr = new int();
+
+
+document.write(arr.abc);
+document.write('<br>');
+</script>
+
+</body>
+</html>

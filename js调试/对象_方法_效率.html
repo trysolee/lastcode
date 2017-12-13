@@ -1,0 +1,117 @@
+<html>
+<body>
+
+<script type="text/javascript">
+
+var d1 = new Date()
+// document.write(d1.getMilliseconds());
+document.write('<br>');
+// -----------------------------
+
+var nn = function() {
+
+		this.i = 0;
+
+		this.get = function() {
+			if (this.i >= 10000000)
+				return true;
+			else
+				return false;
+		};
+
+		this.set = function() {
+			this.i = this.i + 2;
+			this.i = this.i - 1;
+		};
+};
+
+var b = new nn();
+
+while (!b.get())
+	b.set();
+
+
+
+
+// ----------------------------
+var d2 = new Date();
+document.write(d2 - d1);
+document.write('<br>');
+
+// ----------------------------
+// 
+// 
+
+// 下面的做法 , 效率低
+// 
+// 
+var get = function() {
+	if (this.i >= 10000000)
+		return true;
+	else
+		return false;
+};
+
+var set = function() {
+	this.i = this.i + 2;
+	this.i = this.i - 1;
+};
+
+var mm = function() {
+
+	this.i = 0;
+};
+
+var a = new mm();
+
+a.get = get;
+a.set = set;
+
+while (!a.get())
+	a.set();
+
+
+// ----------------------------
+// 
+// 
+// 
+var d3 = new Date();
+document.write(d3- d2);
+document.write('<br>');
+
+document.write(a.toSource());
+document.write('<br>');
+
+
+var a = {
+	i: 0,
+	get: function() {
+		if (this.i >= 10000000)
+			return true;
+		else
+			return false;
+	},
+
+	set: function() {
+		this.i = this.i + 2;
+		this.i = this.i - 1;
+	},
+
+
+};
+
+while (!a.get())
+	a.set();
+// -----------------------------
+// 
+// toSource()
+var d4 = new Date();
+document.write(d4- d3);
+document.write('<br>');
+
+
+
+</script>
+
+</body>
+</html>
